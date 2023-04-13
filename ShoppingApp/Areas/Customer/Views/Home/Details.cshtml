@@ -1,0 +1,33 @@
+﻿@model ShoppingApp_Models.Cart;
+
+<h2 style="margin-top:5px">Product Details</h2>
+<div style="margin-top:5px" class="row">
+    <div class="col-2">
+        <img src="@Model.Product.ImageUrl" width="150" height="150"/>
+    </div>
+    <div class="col-4">
+        <div class="row">
+            <label style="text-decoration:bold" asp-for="Product.Name">Product Name : @Model.Product.Name</label>
+            
+            <label asp-for="Product.Description">Product Description : @Model.Product.Description</label>
+            
+            <label asp-for="Product.Price">Product Price : @Model.Product.Price.ToString("0.00")</label>
+           
+            <label asp-for="Product.CategoryId">Product Category : @Model.Product.Category.CategoryName</label> 
+            
+            <div style="margin-top:5px" class="row mb-3">
+                <label asp-for="Count"></label>
+                <input asp-for="Count" class="form-control" />
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+            <div>
+                <button class="btn btn-success" style="width:150px; margin-top:10px;" asp-area="Customer" asp-action="Index" asp-controller="Home">Back</button>
+                <button class="btn btn-info" style="width:150px; margin-top:10px;" asp-area="Customer" formmethod="post" asp-action="Details" asp-controller="Home"><i class="fa fa-shopping-cart"></i>Add To Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+
+    </div>
+    
+</div>
